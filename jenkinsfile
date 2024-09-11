@@ -9,8 +9,13 @@ pipeline{
         stage('git-checkout') {
             steps {
          git credentialsId: 'github', url: 'https://github.com/VasantaPatil/maven-web-application.git'
-            } 
-            
+            }  
+        }
+
+         stage ('maven-build') {
+            steps {
+                sh "mvn clean package"
+             }
         }
     }
 }
