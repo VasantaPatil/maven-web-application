@@ -46,7 +46,7 @@ pipeline{
         stage('docker push to dokcer hub'){
             steps {
                 sh "docker login -u vasantapatil -p Vasupatil@7"
-                sh "docker push vasantapatil/maven-web-application:$(BUILD_NUMBER)"
+                sh 'docker push vasantapatil/maven-web-application:$BUILD_NUMBER'
             }
         }
     }
