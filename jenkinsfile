@@ -17,5 +17,13 @@ pipeline{
                 sh "mvn clean package"
              }
         }
+         stage('SonarQube Analysis') {
+            steps {
+                echo 'Running SonarQube analysis...'
+                withSonarQubeEnv('Sonarqube') {
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=maven_web_application'
+                }
+          } 
+     }
     }
 }
