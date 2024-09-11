@@ -40,7 +40,7 @@ pipeline{
             }
        stage ('docker-build'){
            steps {
-               sh "docker build -t vasantapatil/maven-web-application:$(BUILD_NUMBER) ."
+               sh 'docker build -t vasantapatil/maven-web-application:$BUILD_NUMBER .'
            } 
         }   
         stage('docker push to dokcer hub'){
