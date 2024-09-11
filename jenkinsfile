@@ -48,5 +48,10 @@ pipeline{
                 sh 'docker push vasantapatil/maven-web-application:$BUILD_NUMBER'
             }
         }
+      stage('depoly as container'){
+            steps {
+                sh "docker run -d --name project -p 9090:8082 vasantapatil/maven-web-application:$BUILD_NUMBER"
+            }
+        }
     }
 }
