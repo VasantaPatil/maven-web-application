@@ -50,7 +50,7 @@ pipeline{
         }
       stage('depoly as container'){
             steps {
-                sh "docker run -d --name project -p 9090:8080 vasantapatil/maven-web-application:$BUILD_NUMBER"
+                sh "docker run -d --name project -p 9091:8080 vasantapatil/maven-web-application:$BUILD_NUMBER"
             }
         }
     }
